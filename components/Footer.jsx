@@ -22,21 +22,21 @@ export default function Footer() {
               alt="Juan Becerra" 
               className="h-42 w-auto mb-4 filter brightness-0 invert"
             />
-            <p className="text-gray-400 mb-6 leading-relaxed">
+            <p className="text-white mb-6 leading-relaxed">
               Elegancia sin límites desde 2017. Moda premium que define tu estilo 
               con calidad y sofisticación en cada pieza de nuestra colección exclusiva.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-white transition-colors duration-200">
+              <a href="#" className="text-white hover:text-gray-300 transition-colors duration-200">
                 <Facebook className="h-5 w-5" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors duration-200">
+              <a href="#" className="text-white hover:text-gray-300 transition-colors duration-200">
                 <Instagram className="h-5 w-5" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors duration-200">
+              <a href="#" className="text-white hover:text-gray-300 transition-colors duration-200">
                 <Twitter className="h-5 w-5" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors duration-200">
+              <a href="#" className="text-white hover:text-gray-300 transition-colors duration-200">
                 <Youtube className="h-5 w-5" />
               </a>
             </div>
@@ -48,7 +48,7 @@ export default function Footer() {
             <ul className="space-y-3">
               {categories.map((category) => (
                 <li key={category.name}>
-                  <a href={category.href} className="text-gray-400 hover:text-white transition-colors duration-200">
+                  <a href={category.href} className="text-white hover:text-gray-300 transition-colors duration-200">
                     {category.name}
                   </a>
                 </li>
@@ -60,12 +60,12 @@ export default function Footer() {
           <div>
             <h4 className="text-lg mb-6">Ayuda</h4>
             <ul className="space-y-3">
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors duration-200">Centro de Ayuda</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors duration-200">Guía de Tallas</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors duration-200">Envíos y Devoluciones</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors duration-200">Métodos de Pago</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors duration-200">Rastrear Pedido</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors duration-200">Contacto</a></li>
+              <li><a href="#" className="text-white hover:text-gray-300 transition-colors duration-200">Centro de Ayuda</a></li>
+              <li><a href="#" className="text-white hover:text-gray-300 transition-colors duration-200">Guía de Tallas</a></li>
+              <li><a href="#" className="text-white hover:text-gray-300 transition-colors duration-200">Envíos y Devoluciones</a></li>
+              <li><a href="#" className="text-white hover:text-gray-300 transition-colors duration-200">Métodos de Pago</a></li>
+              <li><a href="#" className="text-white hover:text-gray-300 transition-colors duration-200">Rastrear Pedido</a></li>
+              <li><a href="#" className="text-white hover:text-gray-300 transition-colors duration-200">Contacto</a></li>
             </ul>
           </div>
 
@@ -74,19 +74,19 @@ export default function Footer() {
             <h4 className="text-lg mb-6">Contacto</h4>
             <div className="space-y-4">
               <div className="flex items-start space-x-3">
-                <MapPin className="h-5 w-5 text-gray-400 mt-0.5 flex-shrink-0" />
-                <p className="text-gray-400">
+                <MapPin className="h-5 w-5 text-white mt-0.5 flex-shrink-0" />
+                <p className="text-white">
                   Calle 85 #11-15<br />
                   Bogotá, Colombia
                 </p>
               </div>
               <div className="flex items-center space-x-3">
-                <Phone className="h-5 w-5 text-gray-400 flex-shrink-0" />
-                <p className="text-gray-400">+57 (1) 234-5678</p>
+                <Phone className="h-5 w-5 text-white flex-shrink-0" />
+                <p className="text-white">+57 (1) 234-5678</p>
               </div>
               <div className="flex items-center space-x-3">
-                <Mail className="h-5 w-5 text-gray-400 flex-shrink-0" />
-                <p className="text-gray-400">hola@juanbecerra.co</p>
+                <Mail className="h-5 w-5 text-white flex-shrink-0" />
+                <p className="text-white">hola@juanbecerra.co</p>
               </div>
             </div>
           </div>
@@ -97,24 +97,24 @@ export default function Footer() {
         {/* Bottom Footer */}
         <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
           <div className="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-6">
-            <p className="text-gray-400 text-sm">
+            <p className="text-white text-sm">
               © 2024 Juan Becerra. Todos los derechos reservados.
             </p>
             <div className="flex space-x-6">
-              <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors duration-200">
+              <a href="#" className="text-white hover:text-gray-300 text-sm transition-colors duration-200">
                 Política de Privacidad
               </a>
-              <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors duration-200">
+              <a href="#" className="text-white hover:text-gray-300 text-sm transition-colors duration-200">
                 Términos y Condiciones
               </a>
-              <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors duration-200">
+              <a href="#" className="text-white hover:text-gray-300 text-sm transition-colors duration-200">
                 Cookies
               </a>
             </div>
           </div>
           
           <div className="flex items-center space-x-4">
-            <p className="text-gray-400 text-sm">Métodos de pago:</p>
+            <p className="text-white text-sm">Métodos de pago:</p>
             <div className="flex space-x-2">
               <div className="w-8 h-5 bg-gradient-to-r from-blue-600 to-blue-700 rounded text-xs flex items-center justify-center text-white">
                 💳
