@@ -10,6 +10,7 @@ import Newsletter from "@/components/Newsletter";
 import InstagramFeed from "@/components/InstagramFeed";
 import PromotionBanner from "@/components/PromotionBanner";
 import SeasonalBanner from "@/components/SeasonalBanner";
+import BrandPhilosophy from "@/components/BrandPhilosophy";
 
 
 export default function HomePage() {
@@ -22,6 +23,7 @@ export default function HomePage() {
       <SeasonalBanner />
       <CategorySection />
       <FeaturedProducts />
+      <BrandPhilosophy />
       <Newsletter />
       <InstagramFeed />
       <Footer />
