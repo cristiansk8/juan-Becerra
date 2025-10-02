@@ -12,10 +12,10 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
   title: {
-    default: 'Juan Becerra - Moda Premium y Exclusiva',
+    default: 'Juan Becerra | Elegancia sin límites',
     template: '%s | Juan Becerra',
   },
-  description: 'Descubre la elegancia y sofisticación de la moda premium con Juan Becerra. Colecciones exclusivas para hombre y mujer, accesorios de lujo y las últimas tendencias.',
+  description: 'Juan Becerra es una marca de ropa y accesorios que busca la elegancia sin límites. Descubre nuestras colecciones de cinturones, billeteras, gorras y más.',
   keywords: ['moda premium', 'ropa de lujo', 'diseñador colombiano', 'Juan Becerra', 'ropa de hombre', 'ropa de mujer', 'accesorios de cuero'],
   authors: [{ name: 'Juan Becerra' }],
   creator: 'Juan Becerra',

@@ -1,8 +1,17 @@
 import { Facebook, Instagram, Twitter, Youtube, Mail, Phone, MapPin } from "lucide-react";
 
+const categories = [
+  { name: 'Nueva Colección', href: '/collections/new-arrivals' },
+  { name: 'Hombre', href: '/collections/hombre' },
+  { name: 'Mujer', href: '/collections/mujer' },
+  { name: 'Accesorios', href: '/collections/accesorios' },
+  { name: 'Sale', href: '/collections/sale' },
+  { name: 'Lookbook', href: '/pages/lookbook' },
+];
+
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-white">
+    <footer className="bg-[#111111] text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
@@ -37,12 +46,13 @@ export default function Footer() {
           <div>
             <h4 className="text-lg mb-6">Categorías</h4>
             <ul className="space-y-3">
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors duration-200">Nueva Colección</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors duration-200">Hombre</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors duration-200">Mujer</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors duration-200">Accesorios</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors duration-200">Sale</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors duration-200">Lookbook</a></li>
+              {categories.map((category) => (
+                <li key={category.name}>
+                  <a href={category.href} className="text-gray-400 hover:text-white transition-colors duration-200">
+                    {category.name}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
