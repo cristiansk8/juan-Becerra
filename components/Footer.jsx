@@ -9,7 +9,7 @@ export default function Footer() {
           {/* Brand & Description */}
           <div className="lg:col-span-1">
             <img 
-              src="/Logo-jb.png" 
+              src="/logo-jb.png" 
               alt="Juan Becerra" 
               className="h-42 w-auto mb-4 filter brightness-0 invert"
             />
