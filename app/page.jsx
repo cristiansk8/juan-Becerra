@@ -6,6 +6,8 @@ import CategorySection from "@/components/CategorySection";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import FeaturedProducts from "../components/FeaturedProducts";
+import Newsletter from "@/components/Newsletter";
+import InstagramFeed from "@/components/InstagramFeed";
 
 
 export default function HomePage() {
@@ -16,6 +18,8 @@ export default function HomePage() {
       <HeroSection />
       <CategorySection />
       <FeaturedProducts />
+      <Newsletter />
+      <InstagramFeed />
       <Footer />
     </main>
   );
