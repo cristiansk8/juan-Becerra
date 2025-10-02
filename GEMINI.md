@@ -50,3 +50,20 @@ npm run start
 
 *   **SEO First:** We are prioritizing Search Engine Optimization (SEO). To achieve this, we will be using Server-Side Rendering (SSR) as the primary rendering strategy.
 *   **Documentation:** When in doubt, consult the official documentation for Next.js, React, Tailwind CSS, and other libraries used in this project.
+
+# Custom Commands
+
+### `analyze-seo <url>`
+*   **Description:** Performs a basic SEO analysis of a given URL.
+*   **Steps:**
+    1.  Uses `web_fetch` to get the content of the URL.
+    2.  Extracts and analyzes the title, description, and headers.
+    3.  Provides a summary with recommendations.
+
+### `update-page-seo <file_path> --title <new_title> --description <new_description>`
+*   **Description:** Updates the SEO metadata of a specific page in the project.
+*   **Steps:**
+    1.  Reads the specified file.
+    2.  Locates the `metadata` export.
+    3.  Replaces the `title` and `description` with the provided values.
+    4.  Overwrites the file with the updated code.

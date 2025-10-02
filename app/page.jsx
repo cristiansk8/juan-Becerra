@@ -8,14 +8,18 @@ import Navbar from "@/components/Navbar";
 import FeaturedProducts from "../components/FeaturedProducts";
 import Newsletter from "@/components/Newsletter";
 import InstagramFeed from "@/components/InstagramFeed";
+import PromotionBanner from "@/components/PromotionBanner";
+import SeasonalBanner from "@/components/SeasonalBanner";
 
 
 export default function HomePage() {
   return (
     <main>
       <AnnouncementBar />
+      <PromotionBanner />
       <Navbar />
       <HeroSection />
+      <SeasonalBanner />
       <CategorySection />
       <FeaturedProducts />
       <Newsletter />
