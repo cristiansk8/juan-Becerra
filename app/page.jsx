@@ -19,8 +19,9 @@ export default function HomePage() {
       <Navbar />
       <HeroSection />
       <SeasonalBanner />
-      <FeaturedProducts />
       <CategorySection />
+      <FeaturedProducts />
+      
       
       <BrandPhilosophy />
       <Newsletter />
