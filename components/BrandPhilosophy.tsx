@@ -6,7 +6,7 @@ export default function BrandPhilosophy() {
     <div className="relative bg-white py-24 sm:py-32">
       <div className="absolute inset-0 opacity-10">
         <Image
-          src="/saco-destacado-1.webp" // Placeholder - a subtle, elegant texture would be ideal
+          src="/banner-juan.png" // Placeholder - a subtle, elegant texture would be ideal
           alt="Textura de tejido"
           className="object-cover"
           fill

@@ -103,7 +103,7 @@ export default function FeaturedProducts() {
         <Slider {...settings}>
           {featuredProducts.map((product) => (
             <div key={product.id} className="px-2 sm:px-4">
-              <div className="group relative block overflow-hidden rounded-lg">
+              <div className="group relative block overflow-hidden ">
                 <a href={product.href}>
                   <div className="relative aspect-[4/5] w-full bg-gray-200">
                     <Image
