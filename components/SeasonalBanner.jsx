@@ -1,8 +1,6 @@
-// components/SeasonalBanner.jsx
 'use client';
 
 import Slider from 'react-slick';
-import Image from 'next/image';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 
@@ -40,17 +38,15 @@ export default function SeasonalBanner() {
   };
 
   return (
-    <div className="w-full  bg-gray-50">
+    <div className="w-full bg-gray-50 py-2">
       <Slider {...settings}>
         {slides.map((slide) => (
           <div key={slide.id} className="relative">
             <div className="h-[60vh] w-full relative">
-              <Image
+              <img
                 src={slide.image}
                 alt={slide.title}
-                className="object-cover"
-                fill
-                priority
+                className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
                 <div className="text-center text-white max-w-2xl mx-auto px-4">
@@ -62,7 +58,7 @@ export default function SeasonalBanner() {
                   </p>
                   <a
                     href={slide.href}
-                    className="bg-white text-black hover:bg-gray-200 transition-colors duration-300 px-8 py-3 text-base sm:text-lg font-semibold rounded-md"
+                    className="inline-block bg-white text-black hover:bg-gray-200 transition-colors duration-300 px-8 py-3 text-base sm:text-lg font-semibold rounded-md"
                   >
                     {slide.buttonText}
                   </a>

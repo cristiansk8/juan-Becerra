@@ -52,7 +52,9 @@ export default function Header() {
               <img 
                 src="/logo-juan-becerra.png"
                 alt="Juan Becerra" 
-                className="h-24 lg:h-36 w-auto"
+                              className={`h-24 lg:h-36 w-auto transition-all duration-500 ${
+                  isScrolled ? 'brightness-100' : 'brightness-0 invert'
+                }`}
               />
             </div>
             

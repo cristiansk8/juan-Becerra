@@ -36,13 +36,13 @@ const categories = [
 const CustomArrow = ({ direction, onClick }) => (
   <button
     onClick={onClick}
-    className={`absolute ${direction === 'left' ? 'left-4' : 'right-4'} top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white p-4 rounded-full shadow-lg transition-all duration-300 z-30 hover:scale-110`}
+    className={`absolute ${direction === 'left' ? 'left-2 sm:left-4' : 'right-2 sm:right-4'} top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white p-2 sm:p-3 lg:p-4 rounded-full shadow-lg transition-all duration-300 z-30 hover:scale-110`}
     aria-label={direction === 'left' ? 'Anterior' : 'Siguiente'}
   >
     {direction === 'left' ? (
-      <ChevronLeft className="h-7 w-7 text-gray-900" />
+      <ChevronLeft className="h-5 w-5 sm:h-6 sm:w-6 lg:h-7 lg:w-7 text-gray-900" />
     ) : (
-      <ChevronRight className="h-7 w-7 text-gray-900" />
+      <ChevronRight className="h-5 w-5 sm:h-6 sm:w-6 lg:h-7 lg:w-7 text-gray-900" />
     )}
   </button>
 );
@@ -91,11 +91,11 @@ export default function CategorySection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
 
           {/* Caption - Izquierda */}
-          <div className="lg:col-span-3 space-y-6 text-white">
+          <div className="lg:col-span-3 space-y-6">
             <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-gray-900 text-center">
               ¿ ?
             </h2>
-            <img src="/toro-juan-becerra.png" alt="toro-juan-becerra" className="w-full h-auto" />
+<img src="/toro-juan-becerra.png" alt="toro-juan-becerra" className="w-3/4 sm:w-full h-auto mx-auto" />
           </div>
 
           {/* Slider - Derecha */}
@@ -106,14 +106,14 @@ export default function CategorySection() {
                 {extendedCategories.map((category, index) => (
                   <div key={`${category.id}-${index}`} className="px-3">
                     <a href={category.href} className="group relative block">
-                      <div className="relative h-[500px] w-full overflow-hidden bg-gray-200">
+                      <div className="relative h-[400px] sm:h-[450px] lg:h-[500px] w-full overflow-hidden bg-gray-200">
                         {/* Marcos ornamentales dorados */}
-                        <div className="absolute top-6 left-6 right-6 bottom-6 border-2 border-[#D4AF37] z-20 transition-all duration-300 group-hover:border-[#FFD700] pointer-events-none">
+                        <div className="absolute top-4 left-4 right-4 bottom-4 sm:top-6 sm:left-6 sm:right-6 sm:bottom-6 border-2 border-[#D4AF37] z-20 transition-all duration-300 group-hover:border-[#FFD700] pointer-events-none">
                           {/* Esquinas decorativas */}
-                          <div className="absolute -top-1 -left-1 w-6 h-6 border-t-4 border-l-4 border-[#D4AF37] group-hover:border-[#FFD700] transition-colors duration-300"></div>
-                          <div className="absolute -top-1 -right-1 w-6 h-6 border-t-4 border-r-4 border-[#D4AF37] group-hover:border-[#FFD700] transition-colors duration-300"></div>
-                          <div className="absolute -bottom-1 -left-1 w-6 h-6 border-b-4 border-l-4 border-[#D4AF37] group-hover:border-[#FFD700] transition-colors duration-300"></div>
-                          <div className="absolute -bottom-1 -right-1 w-6 h-6 border-b-4 border-r-4 border-[#D4AF37] group-hover:border-[#FFD700] transition-colors duration-300"></div>
+                          <div className="absolute -top-1 -left-1 w-4 h-4 sm:w-6 sm:h-6 border-t-4 border-l-4 border-[#D4AF37] group-hover:border-[#FFD700] transition-colors duration-300"></div>
+                          <div className="absolute -top-1 -right-1 w-4 h-4 sm:w-6 sm:h-6 border-t-4 border-r-4 border-[#D4AF37] group-hover:border-[#FFD700] transition-colors duration-300"></div>
+                          <div className="absolute -bottom-1 -left-1 w-4 h-4 sm:w-6 sm:h-6 border-b-4 border-l-4 border-[#D4AF37] group-hover:border-[#FFD700] transition-colors duration-300"></div>
+                          <div className="absolute -bottom-1 -right-1 w-4 h-4 sm:w-6 sm:h-6 border-b-4 border-r-4 border-[#D4AF37] group-hover:border-[#FFD700] transition-colors duration-300"></div>
                         </div>
 
                         <img
@@ -126,11 +126,11 @@ export default function CategorySection() {
                         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent group-hover:from-black/70 transition-all duration-300"></div>
 
                         {/* Contenido de texto */}
-                        <div className="absolute inset-0 flex flex-col justify-end p-6">
-                          <h3 className="text-3xl font-semibold text-white tracking-wider transform group-hover:scale-105 transition-transform duration-300">
+                        <div className="absolute inset-0 flex flex-col justify-end p-4 sm:p-6">
+                          <h3 className="text-2xl sm:text-3xl font-semibold text-white tracking-wider transform group-hover:scale-105 transition-transform duration-300">
                             {category.name}
                           </h3>
-                          <p className="text-white text-base mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                          <p className="text-white text-sm sm:text-base mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                             Explorar →
                           </p>
                         </div>
