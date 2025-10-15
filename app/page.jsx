@@ -6,6 +6,10 @@ import CategorySection from "@/components/CategorySection";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import FeaturedProducts from "../components/FeaturedProducts";
+import BrandPhilosophy from "@/components/BrandPhilosophy";
+import InstagramFeed from "@/components/InstagramFeed";
+import Newsletter from "@/components/Newsletter";
+import SeasonalBanner from "@/components/SeasonalBanner";
 
 
 export default function HomePage() {
@@ -14,8 +18,13 @@ export default function HomePage() {
       <AnnouncementBar />
       <Navbar />
       <HeroSection />
-      <CategorySection />
+      <SeasonalBanner />
       <FeaturedProducts />
+      <CategorySection />
+      
+      <BrandPhilosophy />
+      <Newsletter />
+      <InstagramFeed />
       <Footer />
     </main>
   );

@@ -1,7 +1,6 @@
 // components/FeaturedProducts.jsx
 'use client';
 
-import React from 'react';
 import Slider from 'react-slick';
 import Image from 'next/image';
 

@@ -1,19 +1,15 @@
-
 export default function HeroSection() {
   return (
     <section className="relative h-[90vh] sm:h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Video */}
+      {/* Background Image */}
       <div className="absolute inset-0">
-        <video
-          src="/hero-video.mp4"
+        <img
+          src="/banner-home-juan-becerra.jpg"
+          alt="Banner Juan Becerra"
           className="w-full h-full object-cover"
-          autoPlay
-          loop
-          muted
-          playsInline
         />
         {/* Dark overlay */}
-        <div className="absolute inset-0 bg-opacity-40"></div>
+        <div className="absolute inset-0 bg-opacity-20"></div>
       </div>
 
       {/* Content */}
