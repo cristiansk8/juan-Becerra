@@ -6,51 +6,6 @@ import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 
-const featuredProducts = [
-  {
-    id: 1,
-    name: 'Billetera de Cuero Clásica',
-    price: '$75.000',
-    imageSrc: '/tarjetero-destacado-1.webp',
-    href: '#',
-  },
-  {
-    id: 2,
-    name: 'Cinturón de Piel Genuina',
-    price: '$120.000',
-    imageSrc: '/cinturon-destacado-1.webp',
-    href: '#',
-  },
-  {
-    id: 3,
-    name: 'Gorra de Diseño Exclusivo',
-    price: '$60.000',
-    imageSrc: '/gorras.webp',
-    href: '#',
-  },
-  {
-    id: 4,
-    name: 'Saco de Lujo',
-    price: '$450.000',
-    imageSrc: '/saco-destacado-1.webp',
-    href: '#',
-  },
-  {
-    id: 5,
-    name: 'Tarjetero Minimalista',
-    price: '$55.000',
-    imageSrc: '/tarjetero-destacado-1.webp',
-    href: '#',
-  },
-  {
-    id: 6,
-    name: 'Cinturón Trenzado',
-    price: '$135.000',
-    imageSrc: '/cinturon-destacado-1.webp',
-    href: '#',
-  },
-];
-
 // Componente de flecha personalizada
 const CustomArrow = ({ direction, onClick }) => (
   <button
@@ -66,11 +21,15 @@ const CustomArrow = ({ direction, onClick }) => (
   </button>
 );
 
-export default function FeaturedProducts() {
+export default function FeaturedProducts({ products, title = "Productos Destacados" }) {
   const sliderRef = useRef(null);
 
+  if (!products || products.length === 0) {
+    return null;
+  }
+
   // Duplicar productos para efecto infinito
-  const extendedProducts = [...featuredProducts, ...featuredProducts];
+  const extendedProducts = [...products, ...products];
 
   const settings = {
     dots: true,
@@ -112,8 +71,8 @@ export default function FeaturedProducts() {
               {/* React Slick Slider */}
               <Slider ref={sliderRef} {...settings}>
                 {extendedProducts.map((product, index) => (
-                  <div key={`${product.id}-${index}`} className="px-3">
-                    <a href={product.href} className="group relative block">
+                  <div key={`${product.slug}-${index}`} className="px-3">
+                    <a href={`/products/${product.slug}`} className="group relative block">
                       <div className="relative h-[400px] sm:h-[450px] lg:h-[500px] w-full overflow-hidden bg-gray-200">
                         {/* Marco minimalista */}
                         <div className="absolute top-6 left-6 right-6 bottom-6 border border-white/30 z-20 transition-all duration-500 group-hover:border-white/60 pointer-events-none"></div>
@@ -154,7 +113,7 @@ export default function FeaturedProducts() {
           {/* Caption - Derecha */}
           <div className="lg:col-span-3 space-y-6 order-1 lg:order-2">
             <h2 className="font-belleza text-2xl sm:text-3xl lg:text-5xl font-light tracking-wide mb-6 sm:mb-8 leading-tight text-white text-center lg:text-left">
-              Productos Destacados
+              {title}
             </h2>
             <p className="font-moderat text-base md:text-lg leading-relaxed text-white/90 text-center lg:text-left">
               Descubre nuestros artículos más populares y exclusivos. Cada pieza ha sido cuidadosamente seleccionada para ofrecerte la mejor calidad y estilo.

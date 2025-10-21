@@ -10,9 +10,12 @@ import BrandPhilosophy from "@/components/BrandPhilosophy";
 import InstagramFeed from "@/components/InstagramFeed";
 import Newsletter from "@/components/Newsletter";
 import SeasonalBanner from "@/components/SeasonalBanner";
+import { getFeaturedProducts } from "@/lib/data";
 
 
 export default function HomePage() {
+  const featuredProducts = getFeaturedProducts();
+
   return (
     <main>
       <AnnouncementBar />
@@ -21,7 +24,7 @@ export default function HomePage() {
       
       <CategorySection />
       <SeasonalBanner />
-      <FeaturedProducts />
+      <FeaturedProducts products={featuredProducts} />
       <BrandPhilosophy />
       <Newsletter />
       <InstagramFeed />

@@ -1,19 +1,27 @@
 'use client'
+import Link from 'next/link';
 import { Search, ShoppingBag, User, Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
 
 const navLinks = [
-  { href: "#", text: "Nueva Colección", highlight: false },
-  { href: "#", text: "Hombre", highlight: false },
-  { href: "#", text: "Accesorios", highlight: false },
-  { href: "#", text: "Sale", highlight: true },
+  { href: "/collections/new", text: "Nueva Colección", highlight: false },
+  { href: "/collections/hombre", text: "Hombre", highlight: false },
+  { href: "/collections/accesorios", text: "Accesorios", highlight: false },
+  { href: "/collections/sale", text: "Sale", highlight: true },
 ];
 
-export default function Header() {
-  const [isScrolled, setIsScrolled] = useState(false);
+export default function Navbar({ variant = 'transparent' }) {
+  const isSolidVariant = variant === 'solid';
+  const [isScrolled, setIsScrolled] = useState(isSolidVariant);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   
   useEffect(() => {
+    // Si la variante es sólida, no necesitamos el listener de scroll.
+    if (isSolidVariant) {
+      setIsScrolled(true);
+      return;
+    }
+
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
@@ -33,7 +41,7 @@ export default function Header() {
     <>
 <header 
   className={`fixed top-[38px] -mt-px left-0 right-0 z-50 transition-all duration-500 ${
-    isScrolled 
+    isScrolled || isSolidVariant
       ? 'bg-white/95 backdrop-blur-md shadow-md' 
       : 'bg-transparent'
   }`}
@@ -43,45 +51,47 @@ export default function Header() {
             
             <nav className="hidden lg:flex items-center space-x-8">
               {navLinks.slice(0, 2).map((link) => (
-                <a key={link.text} href={link.href} className={`font-belleza text-lg tracking-wider transition-colors duration-300 relative group ${isScrolled ? 'text-black hover:text-[#620c0b]' : 'text-white hover:text-gray-200'}`}>
+                <Link key={link.text} href={link.href} className={`font-belleza text-lg tracking-wider transition-colors duration-300 relative group ${isScrolled || isSolidVariant ? 'text-black hover:text-[#620c0b]' : 'text-white hover:text-gray-200'}`}>
                   {link.text}
-                  <span className={`absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full ${isScrolled ? 'bg-[#620c0b]' : 'bg-white'}`}></span>
-                </a>
+                  <span className={`absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full ${isScrolled || isSolidVariant ? 'bg-[#620c0b]' : 'bg-white'}`}></span>
+                </Link>
               ))}
             </nav>
 
             {/* Logo - Center */}
             <div className="absolute left-1/2 -translate-x-1/2">
-              <img 
-                src="/logo-juan-becerra.png"
-                alt="Juan Becerra" 
-                className={`h-30 lg:h-40 w-auto transition-all duration-500 ${
-                  isScrolled ? 'brightness-100' : 'brightness-0 invert'
-                }`}
-              />
+              <Link href="/">
+                <img 
+                  src="/logo-juan-becerra.png"
+                  alt="Juan Becerra" 
+                  className={`h-30 lg:h-40 w-auto transition-all duration-500 ${
+                    isScrolled || isSolidVariant ? 'brightness-100' : 'brightness-0 invert'
+                  }`}
+                />
+              </Link>
             </div>
             
             {/* Right Navigation & Actions */}
             <div className="flex items-center space-x-8">
               <nav className="hidden lg:flex items-center space-x-8">
                 {navLinks.slice(2).map((link) => (
-                  <a key={link.text} href={link.href} className={`font-belleza text-lg tracking-wider transition-colors duration-300 relative group ${isScrolled ? 'text-black hover:text-[#620c0b]' : 'text-white hover:text-gray-200'} ${link.highlight ? 'font-semibold' : 'font-medium'}`}>
+                  <Link key={link.text} href={link.href} className={`font-belleza text-lg tracking-wider transition-colors duration-300 relative group ${isScrolled || isSolidVariant ? 'text-black hover:text-[#620c0b]' : 'text-white hover:text-gray-200'} ${link.highlight ? 'font-semibold' : 'font-medium'}`}>
                     {link.text}
-                    <span className={`absolute bottom-0 left-0 h-0.5 transition-all duration-300 group-hover:w-full ${link.highlight ? 'w-full' : 'w-0'} ${isScrolled ? 'bg-[#620c0b]' : 'bg-white'}`}></span>
-                  </a>
+                    <span className={`absolute bottom-0 left-0 h-0.5 transition-all duration-300 group-hover:w-full ${link.highlight ? 'w-full' : 'w-0'} ${isScrolled || isSolidVariant ? 'bg-[#620c0b]' : 'bg-white'}`}></span>
+                  </Link>
                 ))}
               </nav>
               
               <div className="flex items-center space-x-3">
-                <button className={`hidden lg:block p-2 rounded-full transition-colors ${isScrolled ? 'hover:bg-gray-100' : 'hover:bg-white/20'}`}>
-                  <Search className={`h-5 w-5 ${isScrolled ? 'text-black' : 'text-white'}`} />
+                <button className={`hidden lg:block p-2 rounded-full transition-colors ${isScrolled || isSolidVariant ? 'hover:bg-gray-100' : 'hover:bg-white/20'}`}>
+                  <Search className={`h-5 w-5 ${isScrolled || isSolidVariant ? 'text-black' : 'text-white'}`} />
                 </button>
-                <button className={`p-2 rounded-full transition-colors ${isScrolled ? 'hover:bg-gray-100' : 'hover:bg-white/20'}`}>
-                  <User className={`h-5 w-5 ${isScrolled ? 'text-black' : 'text-white'}`} />
+                <button className={`p-2 rounded-full transition-colors ${isScrolled || isSolidVariant ? 'hover:bg-gray-100' : 'hover:bg-white/20'}`}>
+                  <User className={`h-5 w-5 ${isScrolled || isSolidVariant ? 'text-black' : 'text-white'}`} />
                 </button>
-                <button className={`relative p-2 rounded-full transition-colors ${isScrolled ? 'hover:bg-gray-100' : 'hover:bg-white/20'}`}>
-                  <ShoppingBag className={`h-5 w-5 ${isScrolled ? 'text-black' : 'text-white'}`} />
-                  <span className={`absolute -top-1 -right-1 text-xs rounded-full h-5 w-5 flex items-center justify-center font-semibold ${isScrolled ? 'bg-black text-white' : 'bg-white text-black'}`}>
+                <button className={`relative p-2 rounded-full transition-colors ${isScrolled || isSolidVariant ? 'hover:bg-gray-100' : 'hover:bg-white/20'}`}>
+                  <ShoppingBag className={`h-5 w-5 ${isScrolled || isSolidVariant ? 'text-black' : 'text-white'}`} />
+                  <span className={`absolute -top-1 -right-1 text-xs rounded-full h-5 w-5 flex items-center justify-center font-semibold ${isScrolled || isSolidVariant ? 'bg-black text-white' : 'bg-white text-black'}`}>
                     2
                   </span>
                 </button>
@@ -91,9 +101,9 @@ export default function Header() {
             {/* Mobile Menu Button */}
             <button 
               onClick={() => setIsMobileMenuOpen(true)}
-              className={`lg:hidden p-2 rounded-full transition-colors ${isScrolled ? 'hover:bg-gray-100' : 'hover:bg-white/20'}`}
+              className={`lg:hidden p-2 rounded-full transition-colors ${isScrolled || isSolidVariant ? 'hover:bg-gray-100' : 'hover:bg-white/20'}`}
             >
-              <Menu className={`h-6 w-6 ${isScrolled ? 'text-black' : 'text-white'}`} />
+              <Menu className={`h-6 w-6 ${isScrolled || isSolidVariant ? 'text-black' : 'text-white'}`} />
             </button>
           </div>
         </div>
@@ -129,14 +139,14 @@ export default function Header() {
 
         <nav className="flex flex-col p-6 space-y-6">
           {navLinks.map((link) => (
-            <a 
+            <Link 
               key={link.text}
               href={link.href} 
               className={`font-belleza text-xl tracking-wider hover:text-[#620c0b] transition-colors ${link.highlight ? 'font-semibold text-[#620c0b]' : 'font-medium text-gray-900'}`}
               onClick={() => setIsMobileMenuOpen(false)}
             >
               {link.text}
-            </a>
+            </Link>
           ))}
         </nav>
 
