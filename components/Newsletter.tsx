@@ -2,18 +2,15 @@
 
 import { useState } from 'react';
 import { Mail } from 'lucide-react';
-import Toast from './Toast'; // opcional: puedes quitarlo si no lo tienes aún
 
 export default function Newsletter() {
   const [email, setEmail] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [toast, setToast] = useState<{ message: string; type: 'success' | 'error' } | null>(null);
+  const [toast, setToast] = useState<{ message: string; type: string } | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleSubmit = () => {
     setIsSubmitting(true);
 
-    // Simulación de envío
     setTimeout(() => {
       setIsSubmitting(false);
       setToast({ message: '¡Gracias por suscribirte!', type: 'success' });
@@ -23,10 +20,10 @@ export default function Newsletter() {
   };
 
   return (
-    <div className="bg-[#f9fafb] py-16 sm:py-24">
+    <div className="bg-white py-16 sm:py-24">
       {toast && (
         <div
-          className={`fixed top-5 right-5 rounded-lg px-4 py-3 shadow-lg text-white transition-all duration-300 ${
+          className={`fixed top-5 right-5 rounded-lg px-6 py-4 shadow-lg text-white transition-all duration-300 z-50 ${
             toast.type === 'success' ? 'bg-green-600' : 'bg-red-600'
           }`}
         >
@@ -34,17 +31,21 @@ export default function Newsletter() {
         </div>
       )}
 
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-        <Mail className="mx-auto h-10 w-10 text-[#620c0b]" />
-        <h2 className="mt-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+      <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
+        <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#620c0b]/10 mb-6">
+          <Mail className="h-8 w-8 text-[#620c0b]" />
+        </div>
+
+        <h2 className="font-belleza text-2xl sm:text-3xl lg:text-5xl font-light tracking-wide mb-6 leading-tight text-gray-900">
           Suscríbete a nuestro Newsletter
         </h2>
-        <p className="mt-4 text-lg text-gray-600">
+        
+        <p className="font-moderat text-base sm:text-lg text-gray-600 leading-relaxed max-w-2xl mx-auto mb-10">
           Recibe las últimas noticias, colecciones y ofertas especiales directamente en tu bandeja de entrada.
         </p>
 
-        <form onSubmit={handleSubmit} className="mt-10 mx-auto max-w-xl">
-          <div className="flex gap-x-3">
+        <div className="mt-10 mx-auto max-w-xl">
+          <div className="flex flex-col sm:flex-row gap-4">
             <input
               id="email-address"
               type="email"
@@ -52,17 +53,22 @@ export default function Newsletter() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Ingresa tu email"
-              className="min-w-0 flex-auto rounded-md border border-gray-300 bg-white px-3.5 py-2 text-gray-900 placeholder:text-gray-400 focus:border-[#620c0b] focus:ring-2 focus:ring-[#620c0b] sm:text-sm sm:leading-6"
+              className="font-moderat flex-auto border border-gray-300 bg-white px-5 py-3.5 text-gray-900 placeholder:text-gray-400 focus:border-[#620c0b] focus:ring-2 focus:ring-[#620c0b] focus:outline-none transition-all duration-300 text-base"
             />
             <button
-              type="submit"
+              type="button"
+              onClick={handleSubmit}
               disabled={isSubmitting}
-              className="flex-none rounded-md bg-[#620c0b] px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-[#4a0908] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#620c0b] disabled:bg-gray-400"
+              className="font-moderat flex-none bg-[#620c0b] px-8 py-3.5 text-sm tracking-[0.15em] uppercase font-medium text-white hover:bg-[#4a0908] focus:outline-none focus:ring-2 focus:ring-[#620c0b] focus:ring-offset-2 disabled:bg-gray-400 disabled:cursor-not-allowed transition-all duration-300"
             >
               {isSubmitting ? 'Enviando...' : 'Suscribirse'}
             </button>
           </div>
-        </form>
+          
+          <p className="font-moderat text-xs text-gray-500 mt-4 leading-relaxed">
+            Al suscribirte, aceptas recibir correos de Juan Becerra. Puedes cancelar en cualquier momento.
+          </p>
+        </div>
       </div>
     </div>
   );

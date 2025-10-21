@@ -12,17 +12,17 @@ const posts = [
 
 export default function InstagramFeed() {
   return (
-    <div className="py-16 sm:py-24 bg-[#620c0b] text-white">
+    <div className="py-16 sm:py-24 bg-[#1a1a1a] text-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-4">
+          <h2 className="font-belleza text-2xl sm:text-3xl lg:text-5xl font-light tracking-wide mb-6 leading-tight text-white">
             Síguenos en Instagram
           </h2>
           <a 
             href="https://instagram.com/juanbecerra_shop" 
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-lg text-white hover:text-[#D4AF37] transition-colors duration-300"
+            className="inline-flex items-center gap-2 font-moderat text-base sm:text-lg text-white/80 hover:text-white transition-colors duration-300"
           >
             <Instagram className="h-6 w-6" />
             @juanbecerra_shop
@@ -31,9 +31,9 @@ export default function InstagramFeed() {
         
         <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-6">
           {posts.map((post) => (
-            <div key={post.id} className="group relative block overflow-hidden rounded-lg">
+            <div key={post.id} className="group relative block overflow-hidden">
               <a href="https://instagram.com/juanbecerra_shop" target="_blank" rel="noopener noreferrer">
-                <div className="relative aspect-square w-full bg-gray-200">
+                <div className="relative aspect-square w-full bg-gray-800">
                   <img
                     src={post.src}
                     alt={post.alt}
@@ -41,7 +41,7 @@ export default function InstagramFeed() {
                   />
                   
                   {/* Overlay con efecto hover */}
-                  <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center gap-3">
+                  <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center gap-3">
                     {/* Icono de Instagram */}
                     <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
                       <Instagram className="h-10 w-10 text-white" />
@@ -50,25 +50,25 @@ export default function InstagramFeed() {
                     {/* Likes */}
                     <div className="flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75">
                       <Heart className="h-5 w-5 text-red-500 fill-red-500" />
-                      <span className="text-white font-semibold">{post.likes}</span>
+                      <span className="font-moderat text-white font-semibold">{post.likes}</span>
                     </div>
                   </div>
                   
-                  {/* Borde dorado sutil en hover */}
-                  <div className="absolute inset-0 border-2 border-transparent group-hover:border-[#D4AF37] transition-all duration-300 rounded-lg pointer-events-none"></div>
+                  {/* Borde blanco sutil en hover */}
+                  <div className="absolute inset-0 border-2 border-transparent group-hover:border-white/40 transition-all duration-300 pointer-events-none"></div>
                 </div>
               </a>
             </div>
           ))}
         </div>
         
-        {/* CTA Button */}
+        {/* CTA Button con estándar */}
         <div className="text-center mt-12">
           <a
             href="https://instagram.com/juanbecerra_shop"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-white text-[#620c0b] px-8 py-3 rounded-md font-semibold hover:bg-[#D4AF37] hover:text-white transition-colors duration-300"
+            className="inline-flex items-center gap-3 font-moderat text-white text-sm sm:text-base tracking-[0.15em] uppercase font-light border border-white/50 px-8 py-3 hover:bg-white hover:text-black transition-all duration-300"
           >
             <Instagram className="h-5 w-5" />
             Ver más en Instagram

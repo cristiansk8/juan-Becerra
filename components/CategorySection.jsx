@@ -79,10 +79,7 @@ export default function CategorySection() {
         }
       }
     ],
-    customPaging: (i) => (
-      <button className="w-2 h-2 rounded-full bg-gray-300 hover:bg-gray-400 transition-all duration-300 mt-4" />
-    ),
-    dotsClass: "slick-dots custom-dots",
+    dotsClass: "slick-dots custom-dots-minimal",
   };
 
   return (
@@ -92,10 +89,10 @@ export default function CategorySection() {
 
           {/* Caption - Izquierda */}
           <div className="lg:col-span-3 space-y-6">
-            <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-gray-900 text-center">
-              ¿ ?
+            <h2 className="font-belleza text-2xl sm:text-3xl lg:text-5xl font-light tracking-wide mb-6 sm:mb-8 leading-tight text-white text-center lg:text-left">
+              Explora más
             </h2>
-<img src="/toro-juan-becerra.png" alt="toro-juan-becerra" className="w-3/4 sm:w-full h-auto mx-auto" />
+            <img src="/toro-juan-becerra.png" alt="toro-juan-becerra" className="h-42 w-auto mb-4 filter brightness-0 invert mx-auto lg:mx-0" />
           </div>
 
           {/* Slider - Derecha */}
@@ -107,14 +104,8 @@ export default function CategorySection() {
                   <div key={`${category.id}-${index}`} className="px-3">
                     <a href={category.href} className="group relative block">
                       <div className="relative h-[400px] sm:h-[450px] lg:h-[500px] w-full overflow-hidden bg-gray-200">
-                        {/* Marcos ornamentales dorados */}
-                        <div className="absolute top-4 left-4 right-4 bottom-4 sm:top-6 sm:left-6 sm:right-6 sm:bottom-6 border-2 border-[#D4AF37] z-20 transition-all duration-300 group-hover:border-[#FFD700] pointer-events-none">
-                          {/* Esquinas decorativas */}
-                          <div className="absolute -top-1 -left-1 w-4 h-4 sm:w-6 sm:h-6 border-t-4 border-l-4 border-[#D4AF37] group-hover:border-[#FFD700] transition-colors duration-300"></div>
-                          <div className="absolute -top-1 -right-1 w-4 h-4 sm:w-6 sm:h-6 border-t-4 border-r-4 border-[#D4AF37] group-hover:border-[#FFD700] transition-colors duration-300"></div>
-                          <div className="absolute -bottom-1 -left-1 w-4 h-4 sm:w-6 sm:h-6 border-b-4 border-l-4 border-[#D4AF37] group-hover:border-[#FFD700] transition-colors duration-300"></div>
-                          <div className="absolute -bottom-1 -right-1 w-4 h-4 sm:w-6 sm:h-6 border-b-4 border-r-4 border-[#D4AF37] group-hover:border-[#FFD700] transition-colors duration-300"></div>
-                        </div>
+                        {/* Marco minimalista */}
+                        <div className="absolute top-6 left-6 right-6 bottom-6 border border-white/30 z-20 transition-all duration-500 group-hover:border-white/60 pointer-events-none"></div>
 
                         <img
                           src={category.imageSrc}
@@ -126,7 +117,7 @@ export default function CategorySection() {
                         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent group-hover:from-black/70 transition-all duration-300"></div>
 
                         {/* Contenido de texto */}
-                        <div className="absolute inset-0 flex flex-col justify-end p-4 sm:p-6">
+                        <div className="absolute inset-0 flex flex-col justify-end p-8 sm:p-10">
                           <h3 className="text-2xl sm:text-3xl font-semibold text-white tracking-wider transform group-hover:scale-105 transition-transform duration-300">
                             {category.name}
                           </h3>
@@ -149,28 +140,45 @@ export default function CategorySection() {
       </div>
 
       <style jsx global>{`
-        .custom-dots {
+        .custom-dots-minimal {
           display: flex !important;
           justify-content: center;
           gap: 0.5rem;
           margin-top: 2rem;
+          list-style: none;
+          padding: 0;
         }
 
-        .custom-dots li button {
-          width: 0.5rem;
-          height: 0.5rem;
-          border-radius: 9999px;
-          background-color: rgb(209 213 219);
-          transition: all 0.3s;
+        .custom-dots-minimal li {
+          margin: 0;
         }
 
-        .custom-dots li.slick-active button {
-          width: 2rem;
-          background-color: #D4AF37;
+        .custom-dots-minimal li button {
+          width: 8px;
+          height: 8px;
+          padding: 0;
+          border-radius: 50%;
+          background-color: rgba(255, 255, 255, 0.3);
+          border: none;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          font-size: 0;
+          line-height: 0;
         }
 
-        .custom-dots li button:hover {
-          background-color: rgb(156 163 175);
+        .custom-dots-minimal li button:hover {
+          background-color: rgba(255, 255, 255, 0.5);
+          transform: scale(1.2);
+        }
+
+        .custom-dots-minimal li.slick-active button {
+          width: 24px;
+          border-radius: 4px;
+          background-color: rgba(255, 255, 255, 0.9);
+        }
+
+        .custom-dots-minimal li button:before {
+          display: none;
         }
       `}</style>
     </div>

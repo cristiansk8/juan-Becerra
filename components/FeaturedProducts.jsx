@@ -98,9 +98,6 @@ export default function FeaturedProducts() {
         }
       }
     ],
-    customPaging: (i) => (
-      <button className="w-2 h-2 rounded-full bg-gray-300 hover:bg-gray-400 transition-all duration-300 mt-4" />
-    ),
     dotsClass: "slick-dots custom-dots-products",
   };
 
@@ -118,14 +115,8 @@ export default function FeaturedProducts() {
                   <div key={`${product.id}-${index}`} className="px-3">
                     <a href={product.href} className="group relative block">
                       <div className="relative h-[400px] sm:h-[450px] lg:h-[500px] w-full overflow-hidden bg-gray-200">
-                        {/* Marcos ornamentales dorados */}
-                        <div className="absolute top-4 left-4 right-4 bottom-4 sm:top-6 sm:left-6 sm:right-6 sm:bottom-6 border-2 border-[#D4AF37] z-20 transition-all duration-300 group-hover:border-[#FFD700] pointer-events-none">
-                          {/* Esquinas decorativas */}
-                          <div className="absolute -top-1 -left-1 w-4 h-4 sm:w-6 sm:h-6 border-t-4 border-l-4 border-[#D4AF37] group-hover:border-[#FFD700] transition-colors duration-300"></div>
-                          <div className="absolute -top-1 -right-1 w-4 h-4 sm:w-6 sm:h-6 border-t-4 border-r-4 border-[#D4AF37] group-hover:border-[#FFD700] transition-colors duration-300"></div>
-                          <div className="absolute -bottom-1 -left-1 w-4 h-4 sm:w-6 sm:h-6 border-b-4 border-l-4 border-[#D4AF37] group-hover:border-[#FFD700] transition-colors duration-300"></div>
-                          <div className="absolute -bottom-1 -right-1 w-4 h-4 sm:w-6 sm:h-6 border-b-4 border-r-4 border-[#D4AF37] group-hover:border-[#FFD700] transition-colors duration-300"></div>
-                        </div>
+                        {/* Marco minimalista */}
+                        <div className="absolute top-6 left-6 right-6 bottom-6 border border-white/30 z-20 transition-all duration-500 group-hover:border-white/60 pointer-events-none"></div>
 
                         <img
                           src={product.imageSrc}
@@ -133,12 +124,12 @@ export default function FeaturedProducts() {
                           className="h-full w-full object-cover object-center group-hover:scale-110 transition-transform duration-700"
                         />
 
-                        {/* Overlay */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent group-hover:from-black/70 transition-all duration-300"></div>
+                        {/* Overlay con sombra más pronunciada abajo */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent group-hover:from-black/90 transition-all duration-300"></div>
 
                         {/* Contenido de texto */}
-                        <div className="absolute inset-0 flex flex-col justify-end p-4 sm:p-6">
-                          <h3 className="text-2xl sm:text-3xl font-semibold text-white tracking-wider transform group-hover:scale-105 transition-transform duration-300">
+                        <div className="absolute inset-0 flex flex-col justify-end p-8 sm:p-10">
+                          <h3 className="text-1xl sm:text-2xl font-semibold text-white tracking-wider transform group-hover:scale-105 transition-transform duration-300">
                             {product.name}
                           </h3>
                           <p className="text-white text-xl sm:text-2xl font-bold mt-2">
@@ -162,16 +153,19 @@ export default function FeaturedProducts() {
 
           {/* Caption - Derecha */}
           <div className="lg:col-span-3 space-y-6 order-1 lg:order-2">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-white text-center lg:text-left">
+            <h2 className="font-belleza text-2xl sm:text-3xl lg:text-5xl font-light tracking-wide mb-6 sm:mb-8 leading-tight text-white text-center lg:text-left">
               Productos Destacados
             </h2>
-            <p className="text-base md:text-lg leading-relaxed text-white text-center lg:text-left">
+            <p className="font-moderat text-base md:text-lg leading-relaxed text-white/90 text-center lg:text-left">
               Descubre nuestros artículos más populares y exclusivos. Cada pieza ha sido cuidadosamente seleccionada para ofrecerte la mejor calidad y estilo.
             </p>
             <div className="flex justify-center lg:justify-start">
-              <button className="bg-[#620c0b] text-white px-8 py-3 rounded-md font-semibold hover:bg-[#4a0909] transition-colors duration-300">
-                Ver Todos los Productos
-              </button>
+              <a 
+                href="#productos" 
+                className="inline-flex items-center gap-3 font-moderat text-white text-sm sm:text-base tracking-[0.15em] uppercase font-light border border-white/50 px-8 py-3 hover:bg-white hover:text-black transition-all duration-300"
+              >
+                Ver Todos
+              </a>
             </div>
           </div>
 
@@ -184,23 +178,40 @@ export default function FeaturedProducts() {
           justify-content: center;
           gap: 0.5rem;
           margin-top: 2rem;
+          list-style: none;
+          padding: 0;
+        }
+
+        .custom-dots-products li {
+          margin: 0;
         }
 
         .custom-dots-products li button {
-          width: 0.5rem;
-          height: 0.5rem;
-          border-radius: 9999px;
-          background-color: rgb(209 213 219);
-          transition: all 0.3s;
-        }
-
-        .custom-dots-products li.slick-active button {
-          width: 2rem;
-          background-color: #620c0b;
+          width: 8px;
+          height: 8px;
+          padding: 0;
+          border-radius: 50%;
+          background-color: rgba(255, 255, 255, 0.3);
+          border: none;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          font-size: 0;
+          line-height: 0;
         }
 
         .custom-dots-products li button:hover {
-          background-color: rgb(156 163 175);
+          background-color: rgba(255, 255, 255, 0.5);
+          transform: scale(1.2);
+        }
+
+        .custom-dots-products li.slick-active button {
+          width: 24px;
+          border-radius: 4px;
+          background-color: rgba(255, 255, 255, 0.9);
+        }
+
+        .custom-dots-products li button:before {
+          display: none;
         }
       `}</style>
     </div>

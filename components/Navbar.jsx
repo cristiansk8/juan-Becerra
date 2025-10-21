@@ -2,6 +2,13 @@
 import { Search, ShoppingBag, User, Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
 
+const navLinks = [
+  { href: "#", text: "Nueva Colección", highlight: false },
+  { href: "#", text: "Hombre", highlight: false },
+  { href: "#", text: "Accesorios", highlight: false },
+  { href: "#", text: "Sale", highlight: true },
+];
+
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -14,7 +21,6 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Prevenir scroll cuando el menú está abierto
   useEffect(() => {
     if (isMobileMenuOpen) {
       document.body.style.overflow = 'hidden';
@@ -25,26 +31,23 @@ export default function Header() {
   
   return (
     <>
-      <header 
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          isScrolled 
-            ? 'bg-white/95 backdrop-blur-md shadow-md' 
-            : 'bg-transparent'
-        }`}
-      >
+<header 
+  className={`fixed top-[38px] -mt-px left-0 right-0 z-50 transition-all duration-500 ${
+    isScrolled 
+      ? 'bg-white/95 backdrop-blur-md shadow-md' 
+      : 'bg-transparent'
+  }`}
+>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="h-28 py-4 flex items-center justify-between">
+          <div className="h-20 py-3 flex items-center justify-between">
             
-            {/* Left Navigation */}
             <nav className="hidden lg:flex items-center space-x-8">
-              <a href="#" className={`transition-colors duration-300 font-medium relative group ${isScrolled ? 'text-black hover:text-[#620c0b]' : 'text-white hover:text-gray-200'}`}>
-                Nueva Colección
-                <span className={`absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full ${isScrolled ? 'bg-[#620c0b]' : 'bg-white'}`}></span>
-              </a>
-              <a href="#" className={`transition-colors duration-300 font-medium relative group ${isScrolled ? 'text-black hover:text-[#620c0b]' : 'text-white hover:text-gray-200'}`}>
-                Hombre
-                <span className={`absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full ${isScrolled ? 'bg-[#620c0b]' : 'bg-white'}`}></span>
-              </a>
+              {navLinks.slice(0, 2).map((link) => (
+                <a key={link.text} href={link.href} className={`font-belleza text-lg tracking-wider transition-colors duration-300 relative group ${isScrolled ? 'text-black hover:text-[#620c0b]' : 'text-white hover:text-gray-200'}`}>
+                  {link.text}
+                  <span className={`absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full ${isScrolled ? 'bg-[#620c0b]' : 'bg-white'}`}></span>
+                </a>
+              ))}
             </nav>
 
             {/* Logo - Center */}
@@ -52,7 +55,7 @@ export default function Header() {
               <img 
                 src="/logo-juan-becerra.png"
                 alt="Juan Becerra" 
-                              className={`h-24 lg:h-36 w-auto transition-all duration-500 ${
+                className={`h-30 lg:h-40 w-auto transition-all duration-500 ${
                   isScrolled ? 'brightness-100' : 'brightness-0 invert'
                 }`}
               />
@@ -61,14 +64,12 @@ export default function Header() {
             {/* Right Navigation & Actions */}
             <div className="flex items-center space-x-8">
               <nav className="hidden lg:flex items-center space-x-8">
-                <a href="#" className={`transition-colors duration-300 font-medium relative group ${isScrolled ? 'text-black hover:text-[#620c0b]' : 'text-white hover:text-gray-200'}`}>
-                  Accesorios
-                  <span className={`absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full ${isScrolled ? 'bg-[#620c0b]' : 'bg-white'}`}></span>
-                </a>
-                <a href="#" className={`transition-colors duration-300 font-semibold relative group ${isScrolled ? 'text-black hover:text-[#620c0b]' : 'text-white hover:text-gray-200'}`}>
-                  Sale
-                  <span className={`absolute bottom-0 left-0 w-full h-0.5 ${isScrolled ? 'bg-[#620c0b]' : 'bg-white'}`}></span>
-                </a>
+                {navLinks.slice(2).map((link) => (
+                  <a key={link.text} href={link.href} className={`font-belleza text-lg tracking-wider transition-colors duration-300 relative group ${isScrolled ? 'text-black hover:text-[#620c0b]' : 'text-white hover:text-gray-200'} ${link.highlight ? 'font-semibold' : 'font-medium'}`}>
+                    {link.text}
+                    <span className={`absolute bottom-0 left-0 h-0.5 transition-all duration-300 group-hover:w-full ${link.highlight ? 'w-full' : 'w-0'} ${isScrolled ? 'bg-[#620c0b]' : 'bg-white'}`}></span>
+                  </a>
+                ))}
               </nav>
               
               <div className="flex items-center space-x-3">
@@ -100,7 +101,7 @@ export default function Header() {
 
       {/* Mobile Menu Overlay */}
       <div 
-        className={`fixed inset-0 bg-black/50 z-50 transition-opacity duration-300 lg:hidden ${
+        className={`fixed inset-0 bg-black/50 z-[70] transition-opacity duration-300 lg:hidden ${
           isMobileMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
         }`}
         onClick={() => setIsMobileMenuOpen(false)}
@@ -108,11 +109,10 @@ export default function Header() {
 
       {/* Mobile Menu Drawer */}
       <div 
-        className={`fixed top-0 right-0 h-full w-80 bg-white z-50 shadow-2xl transform transition-transform duration-300 ease-in-out lg:hidden ${
+        className={`fixed top-0 right-0 h-full w-80 bg-white z-[70] shadow-2xl transform transition-transform duration-300 ease-in-out lg:hidden ${
           isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
-        {/* Header del drawer */}
         <div className="flex items-center justify-between p-6 border-b">
           <img 
             src="/logo-juan-becerra.png"
@@ -127,39 +127,19 @@ export default function Header() {
           </button>
         </div>
 
-        {/* Navegación móvil */}
         <nav className="flex flex-col p-6 space-y-6">
-          <a 
-            href="#" 
-            className="text-lg font-medium text-gray-900 hover:text-[#620c0b] transition-colors"
-            onClick={() => setIsMobileMenuOpen(false)}
-          >
-            Nueva Colección
-          </a>
-          <a 
-            href="#" 
-            className="text-lg font-medium text-gray-900 hover:text-[#620c0b] transition-colors"
-            onClick={() => setIsMobileMenuOpen(false)}
-          >
-            Hombre
-          </a>
-          <a 
-            href="#" 
-            className="text-lg font-medium text-gray-900 hover:text-[#620c0b] transition-colors"
-            onClick={() => setIsMobileMenuOpen(false)}
-          >
-            Accesorios
-          </a>
-          <a 
-            href="#" 
-            className="text-lg font-semibold text-[#620c0b] transition-colors"
-            onClick={() => setIsMobileMenuOpen(false)}
-          >
-            Sale
-          </a>
+          {navLinks.map((link) => (
+            <a 
+              key={link.text}
+              href={link.href} 
+              className={`font-belleza text-xl tracking-wider hover:text-[#620c0b] transition-colors ${link.highlight ? 'font-semibold text-[#620c0b]' : 'font-medium text-gray-900'}`}
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              {link.text}
+            </a>
+          ))}
         </nav>
 
-        {/* Acciones móviles */}
         <div className="p-6 border-t space-y-4">
           <button className="w-full flex items-center gap-3 p-3 hover:bg-gray-100 rounded-lg transition-colors">
             <Search className="h-5 w-5 text-gray-900" />

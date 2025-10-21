@@ -18,11 +18,10 @@ export default function HomePage() {
       <AnnouncementBar />
       <Navbar />
       <HeroSection />
-      <SeasonalBanner />
+      
       <CategorySection />
+      <SeasonalBanner />
       <FeaturedProducts />
-      
-      
       <BrandPhilosophy />
       <Newsletter />
       <InstagramFeed />
