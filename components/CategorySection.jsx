@@ -9,25 +9,25 @@ const categories = [
   {
     id: 1,
     name: "Cinturones",
-    href: "#",
+    href: "/collections/cinturones",
     imageSrc: "/cinturones.webp",
   },
   {
     id: 2,
     name: "Gorras",
-    href: "#",
+    href: "/collections/gorras",
     imageSrc: "/gorras.webp",
   },
   {
     id: 3,
     name: "Tarjeteros",
-    href: "#",
+    href: "/collections/tarjeteros",
     imageSrc: "/tarjeteros.webp",
   },
   {
     id: 4,
     name: "Sacos",
-    href: "#",
+    href: "/collections/sacos",
     imageSrc: "/sacos.webp",
   },
 ];
@@ -60,7 +60,7 @@ export default function CategorySection() {
     slidesToShow: 3,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 3000,
+    autoplaySpeed: 2000,
     pauseOnHover: true,
     arrows: false,
     responsive: [

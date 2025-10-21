@@ -29,7 +29,7 @@ export default function HeroSection() {
         <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
           {/* Botón primario - Underline style */}
           <a 
-            href="#coleccion" 
+            href="#seasonal" 
             className="group inline-flex items-center gap-3 text-white text-sm sm:text-base tracking-[0.2em] uppercase font-medium border-b-2 border-white pb-2 hover:border-white/60 transition-all duration-300"
           >
             Explorar Colección
@@ -40,7 +40,7 @@ export default function HeroSection() {
           
           {/* Botón secundario - Minimal outline */}
           <a 
-            href="#lookbook" 
+            href="#seasonal" 
             className="inline-flex items-center gap-3 text-white text-sm sm:text-base tracking-[0.15em] uppercase font-light border border-white/50 px-8 py-3 hover:bg-white hover:text-black transition-all duration-300"
           >
             Ver Lookbook

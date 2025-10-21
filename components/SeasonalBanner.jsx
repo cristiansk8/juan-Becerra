@@ -42,7 +42,7 @@ export default function SeasonalBanner() {
   };
 
   return (
-    <div className="w-full bg-white py-2 -mt-px ">
+    <div id='seasonal' className="w-full bg-white py-2 -mt-px ">
       <Slider {...settings}>
         {slides.map((slide) => (
           <div key={slide.id} className="relative">
